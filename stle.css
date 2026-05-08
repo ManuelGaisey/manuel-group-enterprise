@@ -1,0 +1,85 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#fff8e7;
+    color:#222;
+}
+
+header{
+    background:red;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+}
+
+.logo img{
+    width:80px;
+    margin-bottom:10px;
+}
+
+.logo h1{
+    font-size:40px;
+    color:gold;
+}
+
+.hero{
+    text-align:center;
+    padding:50px 20px;
+    background:gold;
+    color:#111;
+}
+
+.hero h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.services{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.services h2{
+    margin-bottom:30px;
+    color:red;
+    font-size:35px;
+}
+
+.service-box{
+    background:white;
+    border:2px solid gold;
+    margin:15px auto;
+    padding:20px;
+    width:80%;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.service-box h3{
+    color:red;
+    margin-bottom:10px;
+}
+
+.contact{
+    background:red;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.contact h2{
+    color:gold;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
