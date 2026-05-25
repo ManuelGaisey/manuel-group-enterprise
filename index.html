@@ -3,71 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Group Enterprise</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Manuel Group Enterprise | Mobile Money & General Services</title>
+    <style>
+        /* --- Color Palettes & Global Settings --- */
+        :root {
+            --momo-yellow: #FFCC00;   /* Bright MTN MoMo Yellow */
+            --brand-red: #E60000;     /* Vibrant Transaction Red */
+            --dark-blue: #0A1128;     /* Premium Deep Base for high contrast text */
+            --light-bg: #F9FAFB;      /* Clean background for content */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-blue);
+            line-height: 1.6;
+        }
+
+        /* --- Modern Header & Logo Area --- */
+        header {
+            background: linear-gradient(135deg, var(--brand-red) 0%, #B30000 100%);
+            color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--momo-yellow);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        header .logo img {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: var(--momo-yellow);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- High-Converting Hero Banner --- */
+        .hero {
+            background-color: var(--momo-yellow);
+            color: var(--dark-blue);
+            text-align: center;
+            padding: 45px 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Layout Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Services Grid Section --- */
+        .services-section {
+            margin-bottom: 50px;
+        }
+
+        .services-section h2 {
+            text-align: center;
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .services-section h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: var(--brand-red);
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-box {
+            background-color: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .service-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-color: var(--momo-yellow);
+        }
+
+        /* Accent coloring for specific high-value networks */
+        .service-box h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--brand-red);
+        }
+
+        /* Customizing specific card text colors for trust and branding */
+        .service-box:nth-child(1) h3 { color: #E6B800; } /* MTN Golden Touch */
+        .service-box:nth-child(2) h3 { color: #00A651; } /* AT Green Boldness */
+        .service-box:nth-child(3) h3 { color: var(--brand-red); } /* Telecel Red */
+
+        .service-box p {
+            color: #4B5563;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* --- Trustworthy Contact Form/Box --- */
+        .contact {
+            background-color: var(--white);
+            border: 2px solid var(--brand-red);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 24px rgba(230, 0, 0, 0.06);
+        }
+
+        .contact h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        /* Instant Click-to-Action Buttons for Customers */
+        .btn-link {
+            display: inline-block;
+            background-color: var(--brand-red);
+            color: var(--white);
+            padding: 12px 25px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background-color: #B30000;
+        }
+
+        .email-link {
+            color: var(--brand-red);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-blue);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Manuel Group Logo">
             <h1>Manuel Group Enterprise</h1>
         </div>
-
         <p>Dealers in General Goods and Services</p>
     </header>
 
     <section class="hero">
         <h2>Fast & Reliable Mobile Money Services</h2>
-        <p>We provide all mobile money and transfer services.</p>
+        <p>Your trusted neighborhood partner for instant cash transfers, deposits, data packages, and secure validations across all networks.</p>
     </section>
 
-    <section class="services">
-        <h2>Our Services</h2>
+    <div class="container">
 
-        <div class="service-box">
-            <h3>MTN Mobile Money</h3>
-            <p>Send and receive money easily.</p>
-        </div>
+        <section class="services-section">
+            <h2>Our Services</h2>
 
-        <div class="service-box">
-            <h3>AT Money</h3>
-            <p>Quick and secure transactions.</p>
-        </div>
+            <div class="services-grid">
+                <div class="service-box">
+                    <h3>MTN Mobile Money</h3>
+                    <p>Send, receive, and cash out funds instantly with maximum reliability.</p>
+                </div>
 
-        <div class="service-box">
-            <h3>Telecel Cash</h3>
-            <p>Reliable mobile money services.</p>
-        </div>
+                <div class="service-box">
+                    <h3>AT Money</h3>
+                    <p>Quick, secure, and smart transaction routes for your daily lifestyle.</p>
+                </div>
 
-        <div class="service-box">
-            <h3>Airtime Transfer</h3>
-            <p>All networks airtime transfer available.</p>
-        </div>
+                <div class="service-box">
+                    <h3>Telecel Cash</h3>
+                    <p>Dependable financial transfers with immediate network notifications.</p>
+                </div>
 
-        <div class="service-box">
-            <h3>Data Transfer</h3>
-            <p>Affordable data bundles and transfer.</p>
-        </div>
+                <div class="service-box">
+                    <h3>Airtime Transfer</h3>
+                    <p>Instant airtime top-ups directly into your phone for all major networks.</p>
+                </div>
 
-        <div class="service-box">
-            <h3>Mash Up Transfer</h3>
-            <p>Fast mash up transactions available.</p>
-        </div>
+                <div class="service-box">
+                    <h3>Data Transfer</h3>
+                    <p>Affordable, super-fast internet data bundles loaded directly to your device.</p>
+                </div>
 
-        <div class="service-box">
-            <h3>SIM Registration</h3>
-            <p>Register and update your SIM easily.</p>
-        </div>
-    </section>
+                <div class="service-box">
+                    <h3>Mash Up Transfer</h3>
+                    <p>Fast voice and data mash-up configurations available on demand.</p>
+                </div>
 
-    <section class="contact">
-        <h2>Contact Us</h2>
+                <div class="service-box">
+                    <h3>SIM Registration</h3>
+                    <p>Worry-free onboarding. Safely register and update your SIM identity quickly.</p>
+                </div>
+            </div>
+        </section>
 
-        <p><strong>Phone:</strong> 0543544627 / 0207704124</p>
+        <section class="contact">
+            <h2>Contact Us Today</h2>
+            <p>Get in touch or visit us directly to execute your transactions smoothly.</p>
+            
+            <div style="margin-bottom: 20px;">
+                <a href="tel:0543544627" class="btn-link">📞 Call 0543544627</a>
+                <a href="tel:0207704124" class="btn-link">📞 Call 0207704124</a>
+            </div>
 
-        <p><strong>Email:</strong> manuelgroupInternational@gmail.com</p>
-    </section>
+            <p><strong>Email:</strong> <a href="mailto:manuelgroupInternational@gmail.com" class="email-link">manuelgroupInternational@gmail.com</a></p>
+        </section>
+
+    </div>
 
     <footer>
         <p>© 2026 Manuel Group Enterprise. All Rights Reserved.</p>
