@@ -3,72 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Group Enterprise | Mobile Money & General Services</title>
+    <title>Manuel Group Enterprise | Mobile Money & IT Services</title>
     <style>
-        /* --- Color Palettes & Global Settings --- */
-      body {
-    background-color: var(--dark-blue);
-    color: var(--white);
-    line-height: 1.6;
-}
-
-/* --- Services Grid Section --- */
-.services-section h2 {
-    text-align: center;
-    font-size: 1.7rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    position: relative;
-    text-transform: uppercase;
-    color: var(--white);
-}
-
-.service-box {
-    background-color: var(--surface-blue);
-    border: 1px solid #222F43;
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.service-box:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    border-color: var(--momo-yellow);
-}
-
-.service-box p {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* --- Trustworthy Contact Box --- */
-.contact {
-    background-color: var(--surface-blue);
-    border: 2px solid var(--brand-red);
-    border-radius: 16px;
-    padding: 35px 25px;
-    text-align: center;
-    margin-bottom: 60px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.contact h2 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    color: var(--white);
-}
-
-.contact p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--white);
-}      --white: #FFFFFF;
+        /* --- Premium IT Dark Mode & Business Variables --- */
+        :root {
+            --momo-yellow: #FFCC00;   /* Bright MTN MoMo Yellow */
+            --brand-red: #E60000;     /* Vibrant Transaction Red */
+            --dark-blue: #0A1128;     /* Deep IT Main Background */
+            --surface-blue: #141B2D;  /* Premium Card Blue for contrast */
+            --white: #FFFFFF;         /* Pure white text readability */
+            --text-dim: #94A3B8;      /* Clean muted grey for descriptions */
         }
 
         * {
@@ -79,19 +23,19 @@
         }
 
         body {
-            background-color: var(--light-bg);
-            color: var(--dark-blue);
+            background-color: var(--dark-blue);
+            color: var(--white);
             line-height: 1.6;
         }
 
-        /* --- Modern Header & Logo Area --- */
+        /* --- Modern Header Banner --- */
         header {
             background: linear-gradient(135deg, var(--brand-red) 0%, #B30000 100%);
             color: var(--white);
-            padding: 25px 20px;
+            padding: 30px 20px;
             text-align: center;
             border-bottom: 5px solid var(--momo-yellow);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         header .logo {
@@ -99,54 +43,61 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
- 
+
         header .logo img {
-            width: 95px;
-            height: 95px;
+            width: 85px;
+            height: 85px;
             background-color: var(--white);
             border-radius: 50%;
-            padding: 5px;
+            padding: 3px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
-        header p {
-            font-size: 1rem;
+        header .subtitle {
+            font-size: 1.1rem;
             color: var(--momo-yellow);
             font-weight: 600;
             letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        header .motto {
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            font-style: italic;
+            letter-spacing: 1.5px;
+            opacity: 0.95;
         }
 
         /* --- High-Converting Hero Banner --- */
         .hero {
             background-color: var(--momo-yellow);
-            color: var(--dark-blue);
+            color: #000000;
             text-align: center;
             padding: 45px 20px;
-            margin-bottom: 40px;
-            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .hero h2 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 800;
             text-transform: uppercase;
-            color: #000000;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            max-width: 600px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
@@ -154,106 +105,87 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
 
         /* --- Services Grid Section --- */
-        .services-section {
-            margin-bottom: 50px;
-        }
-
         .services-section h2 {
             text-align: center;
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             position: relative;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .btn-whatsapp {
-    display: inline-block;
-    background-color: #25D366; /* Official WhatsApp Green */
-    color: #FFFFFF;
-    padding: 12px 25px;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 8px;
-    margin: 5px;
-    transition: background-color 0.2s ease;
-}
-.btn-whatsapp:hover {
-    background-color: #128C7E; /* Darker WhatsApp Green on hover */
-}
-        
         .services-section h2::after {
             content: '';
             display: block;
-            width: 70px;
+            width: 80px;
             height: 4px;
             background-color: var(--brand-red);
-            margin: 8px auto 0 auto;
+            margin: 10px auto 0 auto;
             border-radius: 2px;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .service-box {
-            background-color: var(--white);
-            border: 1px solid #E5E7EB;
+            background-color: var(--surface-blue);
+            border: 1px solid #222F43;
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px 25px;
             text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .service-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
             border-color: var(--momo-yellow);
         }
 
-        /* Accent coloring for specific high-value networks */
         .service-box h3 {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 12px;
-            color: var(--brand-red);
         }
 
-      /* Customizing specific card text colors for trust and branding */
-.service-box:nth-child(1) h3 { color: #E6B800; } /* MTN Yellow */
-.service-box:nth-child(2) h3 { color: #0066CC; } /* AT Blue */
-.service-box:nth-child(3) h3 { color: var(--brand-red); } /* Telecel Red */
-.service-box:nth-child(4) h3 { color: #00A651; } /* Airtime Transfer -> Green */
-.service-box:nth-child(5) h3 { color: #00A651; } /* Data Transfer -> Green */
-.service-box:nth-child(6) h3 { color: #00A651; } /* Mash Up Transfer -> Green */
-.service-box:nth-child(7) h3 { color: #00A651; } /* SIM Registration -> Green */
+        /* Color Brand Identifiers for Cards */
+        .service-box:nth-child(1) h3 { color: #E6B800; } /* MTN Yellow */
+        .service-box:nth-child(2) h3 { color: #0066CC; } /* AT Blue */
+        .service-box:nth-child(3) h3 { color: var(--brand-red); } /* Telecel Red */
+        .service-box:nth-child(4) h3 { color: #00A651; } /* Airtime Transfer -> Green */
+        .service-box:nth-child(5) h3 { color: #00A651; } /* Data Transfer -> Green */
+        .service-box:nth-child(6) h3 { color: #00A651; } /* Mash Up Transfer -> Green */
+        .service-box:nth-child(7) h3 { color: #00A651; } /* SIM Registration -> Green */
 
         .service-box p {
-            color: #4B5563;
+            color: var(--text-dim);
             font-size: 0.95rem;
             font-weight: 500;
         }
 
-        /* --- Trustworthy Contact Form/Box --- */
+        /* --- Secure IT Style Contact Box --- */
         .contact {
-            background-color: var(--white);
+            background-color: var(--surface-blue);
             border: 2px solid var(--brand-red);
             border-radius: 16px;
-            padding: 35px 25px;
+            padding: 40px 25px;
             text-align: center;
-            margin-bottom: 60px;
-            box-shadow: 0 8px 24px rgba(230, 0, 0, 0.06);
+            margin-top: 50px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
 
         .contact h2 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 700;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -261,11 +193,10 @@
 
         .contact p {
             font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: var(--dark-blue);
+            margin-bottom: 20px;
         }
 
-        /* Instant Click-to-Action Buttons for Customers */
+        /* Action Buttons */
         .btn-link {
             display: inline-block;
             background-color: var(--brand-red);
@@ -274,7 +205,7 @@
             font-weight: 700;
             text-decoration: none;
             border-radius: 8px;
-            margin: 5px;
+            margin: 6px;
             transition: background-color 0.2s ease;
         }
 
@@ -282,8 +213,24 @@
             background-color: #B30000;
         }
 
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #25D366;
+            color: var(--white);
+            padding: 12px 25px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 6px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
         .email-link {
-            color: var(--brand-red);
+            color: var(--momo-yellow);
             font-weight: 700;
             text-decoration: none;
         }
@@ -294,27 +241,27 @@
 
         /* --- Footer --- */
         footer {
-            background-color: var(--dark-blue);
-            color: rgba(255, 255, 255, 0.7);
+            background-color: #050814;
+            color: var(--text-dim);
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             font-size: 0.9rem;
             font-weight: 500;
+            margin-top: 40px;
+            border-top: 1px solid #222F43;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <img src="logo.png" alt="Manuel Group Logo">
-        <h1>Manuel Group Enterprise</h1>
-    </div>
-    <p style="margin-bottom: 5px;">Dealers in General Goods and Services</p>
-    <p style="font-size: 0.9rem; color: #FFFFFF; font-style: italic; letter-spacing: 1.5px; opacity: 0.95;">
-        Motto: Service, Reliability, Excellence
-    </p>
-</header>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Manuel Group Logo">
+            <h1>Manuel Group Enterprise</h1>
+        </div>
+        <p class="subtitle">Dealers in General Goods and Services</p>
+        <p class="motto">Motto: Service, Reliability, Excellence</p>
+    </header>
 
     <section class="hero">
         <h2>Fast & Reliable Mobile Money Services</h2>
@@ -364,20 +311,21 @@
             </div>
         </section>
 
-    <section class="contact">
-    <h2>Contact Us Today</h2>
-    <p>Get in touch or visit us directly to execute your transactions smoothly.</p>
+        <section class="contact">
+            <h2>Contact Us Today</h2>
+            <p>Get in touch or visit us directly to execute your transactions smoothly.</p>
+            
+            <div style="margin-bottom: 25px;">
+                <a href="tel:0543544627" class="btn-link">📞 Call 0543544627</a>
+                <a href="tel:0207704124" class="btn-link">📞 Call 0207704124</a>
+                <a href="https://wa.me/233543544627" target="_blank" class="btn-whatsapp">💬 WhatsApp Chat</a>
+            </div>
 
-    <div style="margin-bottom: 25px;">
-        <a href="tel:0207704124" class="btn-link">📞 Call 0207704124</a>
-        <a href="https://wa.me/233543544627" target="_blank" class="btn-whatsapp">💬 WhatsApp Chat</a>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
-        <p><strong>Primary Email:</strong> <a href="mailto:manuelgroupInternational@gmail.com" class="email-link">manuelgroupInternational@gmail.com</a></p>
-        <p><strong>Secondary Email:</strong> <a href="mailto:manuelscketche@gmail.com" class="email-link">manuelscketche@gmail.com</a></p>
-    </div> 
-</section>
+            <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                <p><strong>Primary Email:</strong> <a href="mailto:manuelgroupInternational@gmail.com" class="email-link">manuelgroupInternational@gmail.com</a></p>
+                <p><strong>Secondary Email:</strong> <a href="mailto:manuelscketche@gmail.com" class="email-link">manuelscketche@gmail.com</a></p>
+            </div>
+        </section>
 
     </div>
 
