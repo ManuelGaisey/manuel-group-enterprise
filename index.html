@@ -6,12 +6,69 @@
     <title>Manuel Group Enterprise | Mobile Money & General Services</title>
     <style>
         /* --- Color Palettes & Global Settings --- */
-        :root {
-            --momo-yellow: #FFCC00;   /* Bright MTN MoMo Yellow */
-            --brand-red: #E60000;     /* Vibrant Transaction Red */
-            --dark-blue: #0A1128;     /* Premium Deep Base for high contrast text */
-            --light-bg: #F9FAFB;      /* Clean background for content */
-            --white: #FFFFFF;
+      body {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+/* --- Services Grid Section --- */
+.services-section h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.service-box {
+    background-color: var(--surface-blue);
+    border: 1px solid #222F43;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.service-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-color: var(--momo-yellow);
+}
+
+.service-box p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* --- Trustworthy Contact Box --- */
+.contact {
+    background-color: var(--surface-blue);
+    border: 2px solid var(--brand-red);
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    margin-bottom: 60px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.contact h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.contact p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--white);
+}      --white: #FFFFFF;
         }
 
         * {
