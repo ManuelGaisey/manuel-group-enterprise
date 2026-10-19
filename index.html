@@ -52,15 +52,10 @@ h2.title::after{content:'';display:block;width:80px;height:4px;background:var(--
 .service-box[hidden]{display:none}
 .service-box:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,.5);border-color:var(--momo-yellow)}
 .service-box h3{font-size:1.35rem;font-weight:700;margin-bottom:12px}
-.service-box{--c:#00A651;--t:#fff}
-.service-box:nth-child(1){--c:#E6B800;--t:#000}
-.service-box:nth-child(2){--c:#00A2FF;--t:#000}
-.service-box:nth-child(3){--c:#E60000;--t:#fff}
-.service-box h3{color:var(--c)}
-.feebox{background:rgba(255,204,0,.12);border:1px solid var(--momo-yellow);border-radius:8px;padding:12px;margin-bottom:12px;font-size:.92rem}
+.service-box:nth-child(1) h3{color:#E6B800}.service-box:nth-child(2) h3{color:#00A2FF}.service-box:nth-child(3) h3{color:var(--brand-red)}.service-box:nth-child(n+4) h3{color:#00A651}
 .service-box p{color:var(--text-dim);font-size:.95rem;font-weight:500;margin-bottom:18px;flex:1}
 .acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.go{background:var(--c);color:var(--t);border:none;cursor:pointer;font-weight:700;font-size:.9rem;padding:9px 18px;border-radius:6px}
+.go{background:var(--momo-yellow);color:#000;border:none;cursor:pointer;font-weight:700;font-size:.9rem;padding:9px 18px;border-radius:6px}
 .go:hover{filter:brightness(.92)}
 .ask{background:#25D366;color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;padding:9px 14px;border-radius:6px}
 .ask:hover{background:#128C7E}
@@ -220,31 +215,7 @@ var CFG={
   email:'manuelgroupInternational@gmail.com',
   money:{MTN:'*170#',Telecel:'*110#',AirtelTigo:'*110#'},   // receive-cash codes
   data:{MTN:'*138#',Telecel:'*700#',AirtelTigo:'*111#'},    // data bundle codes (CONFIRM THESE)
-   mashup:'*567#',
-  feeNo:'0207704124',   // customers pay the service fee to this number
-  fee:{ // free = no fee up to this amount; pct = % of amount; min/cap in GHS
-    money:{
-      MTN:{free:100,pct:0.75,min:0,cap:7.5},
-      Telecel:{free:100,pct:0.75,min:0,cap:7.5},      // CONFIRM with Telecel's tariff
-      AirtelTigo:{free:100,pct:0.75,min:0,cap:7.5}    // CONFIRM with AT's tariff
-    },
-    airtime:{free:0,pct:1,min:0.5,cap:5},   // YOUR pricing: change freely
-    data:{free:0,pct:1,min:0.5,cap:5},
-    mashup:{free:0,pct:1,min:0.5,cap:5}
-  }
-};
-function feeFor(){
-  if(S.mode==='recv')return 0;
-  var a=parseFloat(S.f.amt)||0,r=S.t==='money'?CFG.fee.money[S.net]:CFG.fee[S.t];
-  if(!r||a<=r.free)return 0;
-  return Math.round(Math.min(r.cap,Math.max(r.min,a*r.pct/100))*100)/100;
-}
-function feeBox(){
-  var fe=feeFor();if(!(fe>0))return '';
-  return '<div class="feebox"><b>Service fee: GHS '+fe.toFixed(2)+'</b><br>Pay to <b>'+CFG.feeNo+'</b> (Manuel Group Enterprise)'+
-  '<div class="row2" style="margin-top:8px"><a class="dial" href="'+dial('*170#')+'">*170# MTN</a><a class="dial" href="'+dial('*110#')+'">*110# Telecel/AT</a></div>'+
-  '<div class="row2"><button class="sec" data-a="cf" data-v="'+CFG.feeNo+'">Copy number</button><button class="sec" data-a="cf" data-v="'+fe.toFixed(2)+'">Copy fee</button></div></div>';
-}
+  mashup:'*567#'
 };
 var NETS=['MTN','Telecel','AirtelTigo'];
 var S={},$=function(i){return document.getElementById(i)};
@@ -295,21 +266,18 @@ function rows(){
     r.push(['Recipient number',f.rnum],['Recipient network',net]);
   }else if(S.mode==='recv'||t==='mashup')r.push(['Network',S.net]);
   if(f.bundle)r.push(['Bundle',f.bundle]);
-  if(f.amt){
-    r.push(['Amount','GHS '+Number(f.amt).toFixed(2)]);
-    if(S.mode!=='recv'){var fe=feeFor();r.push(['Service fee','GHS '+fe.toFixed(2)],['Total (amount + fee)','GHS '+(Number(f.amt)+fe).toFixed(2)]);}
-  }
+  if(f.amt)r.push(['Amount','GHS '+Number(f.amt).toFixed(2)]);
   if(f.ref)r.push(['Reference',f.ref]);
   return r;
 }
 function table(){return '<table class="rc">'+rows().map(function(x){return '<tr><td>'+esc(x[0])+'</td><td><b>'+esc(x[1])+'</b></td></tr>'}).join('')+'</table>'}
 function review(){return '<p class="lb">Please review and verify your details</p>'+table()+'<p class="note" style="margin-bottom:14px">Make sure the name and number match your registered network details.</p><div class="row2"><button class="sec" data-a="back">← Edit</button><button class="pri" data-a="ok">Confirm</button></div>'}
 function confirmA(){return '<div class="warn">⚠️ Airtime sent is not reversible.<br>Is <b>'+esc(S.f.rnum)+'</b> ('+esc(S.rn)+') the correct number?</div><div class="row2"><button class="sec" data-a="back">No, edit</button><button class="pri" data-a="yes">Yes, proceed</button></div>'}
-function msg(){return ['*MANUEL GROUP ENTERPRISE*','Transaction Request Receipt','Ref: '+S.id,'Date: '+S.date].concat(rows().map(function(x){return x[0]+': '+x[1]}),(feeFor()>0?['Fee payable to: '+CFG.feeNo]:[]),['Status: PENDING – awaiting confirmation']).join('\n')}
+function msg(){return ['*MANUEL GROUP ENTERPRISE*','Transaction Request Receipt','Ref: '+S.id,'Date: '+S.date].concat(rows().map(function(x){return x[0]+': '+x[1]}),['Status: PENDING – awaiting confirmation']).join('\n')}
 function receipt(){
   var m=encodeURIComponent(msg()),sub=encodeURIComponent('Receipt '+S.id+' - '+S.svc);
   return '<p class="lb">Receipt • '+esc(S.id)+'</p>'+table()+
-  feeBox()+'<a class="pri wa" target="_blank" rel="noopener" href="https://wa.me/'+CFG.shop+'?text='+m+'">📤 Send to Manuel Group (WhatsApp)</a>'+
+  '<a class="pri wa" target="_blank" rel="noopener" href="https://wa.me/'+CFG.shop+'?text='+m+'">📤 Send to Manuel Group (WhatsApp)</a>'+
   '<a class="sec" target="_blank" rel="noopener" href="https://wa.me/'+intl(S.f.num)+'?text='+m+'">📩 Send my copy (WhatsApp)</a>'+
   '<a class="sec" href="mailto:'+CFG.email+'?subject='+sub+'&body='+m+'">✉️ Email receipt</a>'+
   '<div class="row2"><button class="sec" data-a="copy">Copy</button><button class="sec" data-a="close">Done</button></div>'+
@@ -345,7 +313,6 @@ $('mb').addEventListener('click',function(e){
   else if(a==='back'){S.step='form';R()}
   else if(a==='ok'){if(S.t==='airtime'&&S.mode==='send'){S.step='confirm';R()}else gen()}
   else if(a==='yes')gen();
-  else if(a==='cf'){if(navigator.clipboard)navigator.clipboard.writeText(v);b.textContent='Copied ✓'}
   else if(a==='copy'){(navigator.clipboard?navigator.clipboard.writeText(msg()):Promise.reject()).then(function(){b.textContent='Copied ✓'}).catch(function(){b.textContent='Copy failed'})}
   else if(a==='close')closeM();
 });
