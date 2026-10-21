@@ -104,13 +104,14 @@ Experience in:
 * Cybersecurity Operations
 * IT Support & Networking
 * Digital Systems & Business Technology
+* Digital Automation & Computer Vision Expert
 
 ---
 
 ## 📞 Contact
 
 📱 +233 54 354 4627
-📱 +233 20 770 4124
+📱 +233 57 123 7676
 📧 [manuelgroupinternational@gmail.com](mailto:manuelgroupinternational@gmail.com)
 📧 [manuelscketche@gmail.com](mailto:manuelscketch@gmail.com)
 
